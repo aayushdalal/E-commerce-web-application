@@ -1,0 +1,35 @@
+<% layout('layouts/boilerplate') %>
+<div class="row container-fluid" id="signup">
+    <div class="col-md-6 mx-auto box">
+        <h1 class="display-6">Registor</h1>
+        <form action="/register" method="post">
+            <div class="mb-3">
+                <label class="form-label" for="username">Username:</label>
+                <input class="form-control " type="text" name="username" id="username" placeholder="Enter your username">
+                <!-- make sure to give name as username only in input field because we will be destructuing object by this username oly in our db -->
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="password">Password:</label>
+                <input class="form-control " type="password" name="password" id="password" placeholder="Enter your password">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="email">Email:</label>
+                <input class="form-control " type="email" name="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="mb-3 d-flex text-info-emphasis">
+                <p class="mb-2">Want to registor as ?</p>
+                <div class="mx-2 ">
+                    <label class="form-label" for="byer">Buyer:</label>
+                    <input clss="form-check-input" type="radio" id='byer' name="role" value="buyer" required>
+                </div>
+                <div class="mx-2 ">
+                    <label class="form-label" for="seller">Seller:</label>
+                    <input clss="form-check-input" type="radio" id="seller" name="role" value="seller" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-sm btn-success">Sign up</button>
+            <p class="fw-ligth mt-2">Already have an account? then Login at :<a href="/login"> Login</a></p>
+
+        </form>
+    </div>
+</div>

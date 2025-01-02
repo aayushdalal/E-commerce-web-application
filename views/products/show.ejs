@@ -1,0 +1,92 @@
+<% layout('layouts/boilerplate') %>
+<%-include('../partials/navbar')%>
+<%-include('../partials/flash')%>
+
+<!-- remember our folder name was layouts , layout is a method to inclue the boiler plate -->
+    <div class="row">
+        <div class="col-lg-6 mt-3">
+          
+            <div class="shadow card mx-auto" style="width: 18rem;">
+                <img src="<%= item.img %>" class="card-img-top" alt="..." height="300px">
+                <div class="card-body">
+                  <h2 class="card-title"><%= item.name%></h2>
+                  <h5 class="card-title"><%= item.price %></h5>
+                  <p class="card-text"><%= item.description%></p>
+                  <form action="/user/<%= item._id%>/add" method="POST" class="d-inline-block btn btn-sm btn-info">
+                    <button class="btn btn-sm btn-success">Add to cart</button>
+                  </form>
+                  <a href="/products" class="btn btn-sm btn-success">Buy</a>
+                  <a href="/products" class="btn btn-sm btn-secondary">Home</a>
+                  <% if(currentUser && currentUser.role === "seller"){ %>
+                  <a href="/products/<%= item._id %>/edit" class="btn btn-sm btn-secondary">Edit</a>
+                  <%}%>
+
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-4">
+            <h1 class="display-5">Leave a Review</h1>
+            <form action="/products/<%= item._id %>/review" method="post">
+                <div >
+                    <!-- <label class="form-label" for="rating">Rating:</label>
+                    name in inout should be same as of schema
+                    <input class="form-control" type="range" min="0" max="5" name="rating" id="rating"> -->
+                    <fieldset class="starability-basic">
+                        <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+                        <input type="radio" id="first-rate1" name="rating" value="1" />
+                        <label for="first-rate1" title="Terrible">1 star</label>
+                        <input type="radio" id="first-rate2" name="rating" value="2" />
+                        <label for="first-rate2" title="Not good">2 stars</label>
+                        <input type="radio" id="first-rate3" name="rating" value="3" />
+                        <label for="first-rate3" title="Average">3 stars</label>
+                        <input type="radio" id="first-rate4" name="rating" value="4" />
+                        <label for="first-rate4" title="Very good">4 stars</label>
+                        <input type="radio" id="first-rate5" name="rating" value="5" />
+                        <label for="first-rate5" title="Amazing">5 stars</label>
+                      </fieldset>
+                      <!-- take care of name shoudl be same as in schema only -->
+                    <!-- to conver this range into stars we have a library called starability css on github copy it from there go to css starabilty css in there go to basic css copy that full code and paste that into your public css in star.css -->
+                     <!-- also instead of label input here copy fieldset class starabilty basic code and paste it here -->
+                </div> 
+                <div class="mb-3">
+                    <label class="form-label" for="comment">text:</label>
+                    <!-- name in inout should be same as of schema -->
+                    <input type="text" class="form-control" row="3" name="comment" id="comment" required></input>
+                    <!-- remember to close this text area by closing tag -->
+                </div> 
+                <button class="btn btn-sm btn-success">Add Review</button>
+                <hr>
+            </form>
+            <div class="my-3"><strong>Reviews:</strong>
+                <!-- now there can be multiple reviews so aplly for loop -->
+                <% for(let review of item.reviews){ %>
+                   
+                    <div class="card">
+                        <p class="card-title mx-3">
+                            <!-- srch how to convert datetime to string in es5 on google in stackoverflow -->
+                            <%if(review.createdAt){ %> 
+                                <!-- conditonal rednedring if it is present -->
+                                <%= review.createdAt.toDateString() %>
+                          <%  }%>
+                        </p>
+                            <p class="starability-result" data-rating="<%= review.rating %>">
+                                Rating:<%= review.rating %> stars
+                            </p>
+                         
+                          <!-- for rating to be visible in star do same here copy accesbile outline in showing static result cope that code -->
+                        
+                        <div class="card-body">
+                          <h5 class="card-title"></h5>
+                          <p class="card-text"><%=review.comment %></p>
+                          <form class="d-inline-block" action="/products/<%= item._id %>/<%= review._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-sm btn-danger ">Delete</button>
+                          </form>
+                        </div>
+                       
+                      </div>
+                <% } %>
+
+            </div>
+        </div>
+        
+    </div>

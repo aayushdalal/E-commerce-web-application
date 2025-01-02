@@ -1,0 +1,53 @@
+
+<% layout('layouts/boilerplate') %>
+<%- include('../partials/navbar') %>
+
+
+<section class="container">
+    <h1 class="display-6">My Cart</h1>
+    <div class="row">
+        <div class="col-lg-8">
+
+            <%for(let item of user.cart){%>
+                <div class="card mx-auto mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-4">
+                            <img src="<%=item.img%>" class="img-fluid rounded-start" alt="..." style="height: 20vh; width: 20vw;">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><%=item.name%></h5>
+                                <h5 clss="">Rs.<%=item.price%></h5>
+                                <a href="/products/<%=item._id%>"  class="btn btn-info">View product</a>
+                                <a href="/cart/<%=item._id%>/remove"  class="btn btn-danger">Remove product</a>
+
+                                <!-- <p class="card-text"><small class="text-muted">Last update 3 min ago</small></p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <%}%>
+        </div>
+        <%let totalAmount=0 %>
+        <div class="col-lg-4">
+            <ul class="list-group">
+                <%for(let item of user.cart){%>
+                 <div class="invisible"><%= totalAmount += item.price %> </div>
+                    <li class="list-group-item"><span class="fw-bold"><%=item.name%> - </span>Rs. <%=item.price%></li>
+                    <br>
+                    <!-- THIS FORM IS TAKEN FROM MAYANK GUTA DOCUMENTATION ON PAYEMNET GATEWAY ONLY JUST SCROLL DOWN AND  COPY PASTE -->
+                    <%}%>
+                    <li class="list-group-item">Total Amount: Rs. <%= totalAmount %></li>
+                      <form action="/payment_gateway/payumoney" method="POST">
+                          <input type="hidden" name="amount" value="<%=totalAmount%>">
+                          <input type="hidden" name="phone" value="+919631223699">
+                          <input type="hidden" name="service_provider" value="payu_paisa">
+                          <input type="hidden" class="product" name="productinfo" value="<%=productinfo %>" >
+                          <button type="submit" class=" fs-2 btn btn-sm btn-success my-3">Checkout</button>
+                          <!-- <input type="submit" value="Pay"> -->
+                      </form>
+            </ul>
+          
+        </div>
+    </div>
+</section>

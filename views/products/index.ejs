@@ -1,0 +1,70 @@
+<% layout('layouts/boilerplate') %>
+<%-include('../partials/navbar')%>
+<%-include('../partials/flash')%>
+
+<!-- remember our folder name was layouts , layout is a method to inclue the boiler plate -->
+
+    <div class="row container-fluid" id="mainPage" >
+    <% for(let item of products){ %>
+        <div class="col-lg-3 mt-3">
+            <div class="shadow-sm card mx-auto position-relative shadow-lg" style="width: 20rem;">
+                <img src="<%= item.img %>" class="card-img-top" alt="..." height="300px">
+                <span class="badge rounded-pill bg-light text-dark w-25 position-absolute translate-middle-y" style="top:41%;left:5%" ><%=item.avgRating %> | <%=item.reviews.length%></span>
+                <div class="card-body">
+                  <span class=" fw-bold fs-4 card-title"><%= item.name%></span>
+                  <span class="btn like-btn pb-3 pr-1" productid="<%=item._id %>">
+                    <!-- this product id here is the user defined attribute -->
+                     <% if(currentUser && currentUser.wishList.includes(item._id)){ %>
+                      <!-- to make this wishlist ,it will contain an array that includes id of all the products liked by that user , so it will be stored in userschema now to make this we will make our own api because we dont wnat our page to get refrehsed so we need to make our own api -->
+                       <!-- diff between api and route is that api returns the data to be manipulated and routes returns the entire response that is the complete ejs fileeeee but api only returns a part of that ejs file that needs to be manipulated therefore here we will make our own api and not route so make your own api folder in routes under that make product.js -->
+                      <i class="fas fa-heart"></i>
+                    <% }else{ %>
+                      <i class="far fa-heart "></i>
+                    <%} %>
+                  </span>
+                  <h5 class="card-title"><%= item.price %></h5>
+                  <p class="card-text"><%= item.description%></p>
+                  <% if(item.reviews.length){ %>
+                    <p class="text-muted"><%=item.reviews.length %> reviews</p>
+                 <% } else{%>
+                    <p class="tex-muted">NO reviews</p>
+                 <%} %>
+                  <a href="/products/<%=item._id%>" class="btn btn-info">View Product</a>
+                  <!-- take care of item._id -->
+                  <% if(currentUser && currentUser.role === "seller"){ %>
+                   <form class="d-inline-block" action="/products/<%=item._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-sm btn-danger ">Delete</button>
+                   </form>
+                   <%} %>
+                </div>
+              </div>
+        </div>
+    <% } %>
+    <div id="second" class=" text-center p-3 mt-5  bg-info text-dark border-top border-black">
+      <div class="row">
+        <div class="column fs-2">
+          All rights reserved 
+        </div>
+      </div>
+      <div class="mt-5 container text-center">
+        <div class="row fs-4">
+          <div class="col">
+          About us
+          </div>
+          <div class="col">
+          Contact us
+          </div>
+          <div class="col">
+          Follow us
+          </div>
+          <div class="col">
+            Consumer-policy
+          </div>
+        </div>
+      </div>
+     
+  </div>
+    </div>
+   <script src='/js/common.js'></script>
+</body>
+</html>
