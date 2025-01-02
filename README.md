@@ -4,6 +4,7 @@ Various features such as Authentication , Validation , payemnet gateway integrat
 Built by me with my knowledge of backend using nodejs, express, js ,ejs ,mongodb, ,reading their documentaion 
 
 Used following dependencies :dependencies": {
+
     "axios": "^1.7.9", // for ajax request and api creation 
     "connect-flash": "^0.1.1", // to display flash messages when some event is executed 
     "dotenv": "^16.4.7", // for security 
@@ -22,5 +23,6 @@ Used following dependencies :dependencies": {
     "request": "^2.88.2", // for payment gateway integration 
     "uuid": "^11.0.3" // to generate unique id 
   }
+  
  
   TO RUN THE WEB APP IN YOUR OWN PC  :copy the entire git repo, then install apply npm init -y on your pc and install npm i allFollowingDependecies given above and make sure u have mongodb and nodejs isntalled and star the project by npm start 
