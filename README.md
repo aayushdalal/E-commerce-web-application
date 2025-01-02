@@ -1,6 +1,8 @@
 # E-commerce-web-application
 Various features such as Authentication , Validation , payemnet gateway integration, RESTFUL ROUTING, API INTEGRATION,AJAX REQUEST using axios, sessions and cookies ,used locals to make code dry instead of wet., mongodb database, flash messages on screen upon specific event, products schema their reivews,reviews schema , user schema , save functionality of a product for a user to buy it later,
+
 Built by me with my knowledge of backend using nodejs, express, js ,ejs ,mongodb, ,reading their documentaion 
+
 Used following dependencies :dependencies": {
     "axios": "^1.7.9", // for ajax request and api creation 
     "connect-flash": "^0.1.1", // to display flash messages when some event is executed 
@@ -20,4 +22,5 @@ Used following dependencies :dependencies": {
     "request": "^2.88.2", // for payment gateway integration 
     "uuid": "^11.0.3" // to generate unique id 
   }
+ 
   TO RUN THE WEB APP IN YOUR OWN PC  :copy the entire git repo, then install apply npm init -y on your pc and install npm i allFollowingDependecies given above and make sure u have mongodb and nodejs isntalled and star the project by npm start 
