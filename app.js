@@ -79,8 +79,11 @@ app.use(productApi);
 
 //after connecting the server u will connet the db
 //go to moongose js website to see code 
+
+//dont put semicolon after when u requuire env file data!!!!!!
 const dbURL=process.env.dbURL
-mongoose.connect(dbURL)//change database name here instead of test we will write shopping and this will return a promise
+const url= process.env.url
+mongoose.connect(url)//change database name here instead of test we will write shopping and this will return a promise
 .then(()=>{
     console.log('db connected succefully');
 })
@@ -95,9 +98,9 @@ mongoose.connect(dbURL)//change database name here instead of test we will write
 //after our data is pushed onto db we need to extract data from db then we need to put get pist request
 //after our db is conntected we will make now in model(collections) such as product, users,review, cart now corresponsing to every scheme we will make a new schema so yess we will have these many models
 //now start making schemas of yourn database
-
-app.listen(8080,()=>{
-    console.log('server connected at port 8080');
+const port = process.env.port;
+app.listen(port,()=>{
+    console.log(`server connected at ${port}`);
     
 })
 
@@ -140,3 +143,8 @@ app.listen(8080,()=>{
 //to acccess env file data that u want u write process.env.dataname also always require dotenv at top of our app.js and also in gitingore u always throw .env file
 
 // now we will do mvc architecutre crete a folder controllers and make a file product.js
+
+//For deployemnet we will be using render , make .env file first ,so we set mongodb url into our .env to make our port private and no body will be able to change our port , so make your monngodb as well as port of backend 8080 on .env
+// whenever if we need to use .env then we need to install one package called npm i dotenv
+
+// now earlier our db was locally connected to our machine now we want to store our data online so we will connect our db online , so go to atlas database mongodband creat your account 

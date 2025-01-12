@@ -26,3 +26,4 @@ Used following dependencies :dependencies": {
   
  
   TO RUN THE WEB APP IN YOUR OWN PC  :copy the entire git repo, then install apply npm init -y on your pc and install npm i allFollowingDependecies given above and make sure u have mongodb and nodejs isntalled and star the project by npm start 
+

@@ -20,7 +20,7 @@ router.post('/user/:productId/add',isLoggedIn,async(req,res)=>{
     user.cart.push(product);
     //now dont forget to save this newly added product
     await user.save()
-    res.redirect('/user/cart');
+    res.redirect('/products');
 })
 router.get('/cart/:idd/remove',async(req,res)=>{
     let {idd}=req.params;
