@@ -1,0 +1,52 @@
+/* Footer Styling */
+#second {
+    background-color: #343a40; /* Dark gray background for footer */
+    color: white; /* White text for better contrast */
+    padding: 40px 0; /* Add more padding for spacing */
+    border-top: 3px solid #000; /* Black border at the top for separation */
+  }
+  
+  #second .column {
+    font-size: 1.5rem; /* Larger font size for the "All rights reserved" text */
+    font-weight: 600;
+  }
+  
+  #second .container {
+    max-width: 1200px; /* Set a max-width for large screens */
+    margin: 0 auto; /* Center the content */
+  }
+  
+  #second .row {
+    display: flex; /* Use flexbox for better layout */
+    justify-content: space-between; /* Spread items across the row */
+    align-items: center; /* Vertically center content */
+  }
+  
+  #second .row > div {
+    flex: 1; /* Distribute columns evenly */
+    text-align: center; /* Center text in each column */
+    font-size: 1.2rem; /* Set font size */
+    margin: 10px 0; /* Add some vertical spacing */
+  }
+  
+  #second .row > div:hover {
+    color: #007bff; /* Change text color on hover for interactivity */
+    cursor: pointer; /* Pointer cursor to indicate clickable items */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    #second .row {
+      flex-direction: column; /* Stack the columns vertically on smaller screens */
+      align-items: center; /* Center the items horizontally */
+    }
+  
+    #second .row > div {
+      margin: 15px 0; /* Add more margin for spacing between stacked items */
+    }
+  
+    #second .column {
+      font-size: 1.2rem; /* Slightly smaller font size for mobile view */
+    }
+  }
+  

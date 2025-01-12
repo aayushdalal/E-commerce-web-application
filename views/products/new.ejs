@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="col-6 mx-auto">
-        <form action="/products" method="post" class="needs-validation" novalidate >
+        <form action="/products" method="post" class=" formnew needs-validation" novalidate >
             <!-- remember to put this class from bootstrap in form and also this novalidate  to remove requried validation and js validation to run and now copy the respective divs from bootstrap to display this filed is required in each filed u want the required field to get displayed-->
             <!-- if we add novalidate to input then form will get submitted even if there is required in input and we dont speicfy this input then too form will get submitee because of this novalidate and product will be added but take care of server side vlaidtiaon see if name is required in schema then even here form gets submitted but then in our server side due to mongodb our name was required but id didnt came so it produced an error due to server side validation -->
         <!-- now in bootstrap in forms we have validation and it produces better way to tell that this field is required so it applies a differnet kind of validation -->

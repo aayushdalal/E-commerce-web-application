@@ -148,3 +148,6 @@ app.listen(port,()=>{
 // whenever if we need to use .env then we need to install one package called npm i dotenv
 
 // now earlier our db was locally connected to our machine now we want to store our data online so we will connect our db online , so go to atlas database mongodband creat your account 
+
+//deploy bakcend porject on render resgiter with github : https://shoproom.onrender.com  , this is our command
+//now for frontend project we will deploy it on versal

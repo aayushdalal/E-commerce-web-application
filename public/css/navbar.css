@@ -1,0 +1,70 @@
+/* Custom Navbar Styling */
+*{
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.custom-navbar {
+    background-color: #007bff; /* Set navbar background color */
+    border-radius: 0 0 15px 15px; /* Rounded corners for bottom of the navbar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  }
+  
+  .custom-navbar .navbar-brand {
+    font-family: 'Arial', sans-serif;
+    color: white !important;
+    font-weight: bold;
+  }
+  
+  .custom-navbar .navbar-nav .nav-link {
+    color: white !important;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .custom-navbar .navbar-nav .nav-link:hover {
+    color: #f0e68c !important; /* Hover effect with a soft yellow */
+  }
+  
+  .custom-navbar .navbar-toggler {
+    border-color: white;
+  }
+  
+  .custom-navbar .navbar-toggler-icon {
+    background-color: white; /* Set the hamburger icon to white */
+  }
+  
+  .custom-navbar .navbar-nav .dropdown-menu {
+    background-color: #007bff; /* Set dropdown background color */
+    border: none;
+  }
+  
+  .custom-navbar .navbar-nav .dropdown-item {
+    color: white;
+    padding: 5px;
+  }
+  
+  .custom-navbar .navbar-nav .dropdown-item:hover {
+    background-color: #f0e68c; /* Hover color for dropdown items */
+    color: #007bff; /* Hover text color */
+  }
+  
+  .custom-navbar .navbar-nav .nav-link.ms-2 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: #f0e68c; /* Login button background color */
+    color: #007bff !important;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-navbar .navbar-nav .nav-link.ms-2:hover {
+    background-color: #ffcc00; /* Hover color for login button */
+  }
+  
+  .custom-navbar .navbar-nav .badge {
+    background-color: #f44336; /* Red badge for cart count */
+    color: white;
+  }
+  
