@@ -196,8 +196,7 @@
 
   /* now we will do styling of our website */
 #mainPage{
-  position: absolute;
-  top:13%;
+  position: relative;
 }
 #second{
   position: absolute;
