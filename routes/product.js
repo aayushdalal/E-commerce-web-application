@@ -36,7 +36,7 @@ router.post('/products',validateProduct,isSeller,async(req,res)=>{
         //now author here isnt coming from req body but from current logged in user
     let {name,img,price,description,}=req.body;
     await Product.create({name,img,price,description,author:req.user._id});
-    req.flash('success',"product added succesfully");
+    req.flash('success',"Product Added Succesfully");
     res.redirect('/products')
     }
     catch(e){ 
@@ -89,7 +89,7 @@ router.delete('/products/:idd',isProductAuthor,async(req,res)=>{
     //    await Review.findByIdAndDelete(id)
     // }
     await Product.findByIdAndDelete(idd)
-    req.flash('success',"product Deleted succesfully");
+    req.flash('success',"Product Deleted Succesfully");
     //here before deleting product lets find product and delete all its reviews
     res.redirect('/products')
     }

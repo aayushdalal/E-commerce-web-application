@@ -67,4 +67,14 @@
     background-color: #f44336; /* Red badge for cart count */
     color: white;
   }
-  
+.new-product :hover{
+    border: 1px solid #007bff;
+    background-color:azure ;
+}
+.flash{
+  font-size: larger;
+  width: 35vw;
+  left:30%;
+  position: absolute;
+  top:5%;
+}
